@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatBox</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #chat-container {
+            height: 400px;
+            overflow-y: scroll;
+        }
+        #message-input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        #send-button {
+            padding: 5px;
+            margin-top: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>ChatBox</h1>
+    <div id="chat-container"></div>
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <button type="submit" id="send-button">Send</button>
+    </form>
+    <script>
+        function fetchMessages() {
+            fetch('/get_messages')
+                .then(response => response.json())
+                .then(data => {
+                    const messages = data.messages.reverse();
+                    const chatContainer = document.getElementById('chat-container');
+                    chatContainer.innerHTML = '';
+                    messages.forEach(message => {
+                        const p = document.createElement('p');
+                        p.textContent = message[1];
+                        chatContainer.appendChild(p);
+                    });
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                });
+        }
+
+        document.getElementById('message-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value.trim();
+            if (message !== '') {
+                fetch('/send_message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `message=${encodeURIComponent(message)}`
+                })
+                    .then(response => {
+                        if (response.redirected) {
+                            window.location.href = response.url;
+                        }
+                    });
+                messageInput.value = '';
+            }
+        });
+
+        setInterval(fetchMessages, 2000); // Fetch messages every 2 seconds
+        fetchMessages(); // Fetch messages initially
+    </script>
+</body>
+</html>

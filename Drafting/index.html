@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Chat</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+    :root {
+      --main-color: #d3ad7f;
+      --black: #4a4a58;
+      --bg: #131321;
+      --border: .1rem solid rgba(255, 255,255,.3);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #3e3e4e;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--main-color);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p{
+      text-align: center;
+      color: var(--main-color);
+      font-size: 1rem;
+      font-style: italic;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    #messages {
+      height: 300px;
+      overflow-y: scroll;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #1f4e8c; 
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .message {
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      background-color: #0a2c58;
+      border-radius: 8px;
+    }
+
+    .message.user {
+      margin-bottom: 20px;
+      background-color: var(--main-color);
+      color: #fff;
+      text-align: right;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin-left: 10px;
+      background-color: var(--main-color);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b38d60; /* Darken the main color on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Our Community</h1>
+    <p>Share Your Story</p>
+    <div id="messages"></div>
+    <form id="messageForm">
+      <input type="text" id="user" placeholder="Enter your name">
+      <input type="text" id="message" placeholder="Type your message">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const messageForm = document.getElementById('messageForm');
+    const messagesContainer = document.getElementById('messages');
+
+    function appendMessage(message) {
+      const messageElement = document.createElement('div');
+      messageElement.innerText = `${message.user}: ${message.text}`;
+      messagesContainer.appendChild(messageElement);
+    }
+
+    function fetchMessages() {
+      fetch('/messages')
+        .then(response => response.json())
+        .then(messages => {
+          messagesContainer.innerHTML = '';
+          messages.forEach(message => appendMessage(message));
+        });
+    }
+
+    messageForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const user = document.getElementById('user').value;
+      const text = document.getElementById('message').value;
+      if (user && text) {
+        fetch('/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user, text })
+        })
+        .then(response => response.json())
+        .then(message => {
+          appendMessage(message);
+          document.getElementById('message').value = '';
+        });
+      }
+    });
+
+    fetchMessages();
+    setInterval(fetchMessages, 2000); // Fetch messages every 2 seconds
+  </script>
+</body>
+</html>

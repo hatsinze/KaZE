@@ -1,0 +1,386 @@
+/*BASIC STYLES*/
+
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*HEADER*/
+
+header {
+  background-color: #ffffff; /* Change to desired color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  padding: 15px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 150px; /* Adjust logo size as needed */
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333333; /* Change to desired color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff5500; /* Change to desired hover color */
+}
+
+
+
+/*HERO SECTION*/
+
+
+.hero {
+  background-color: #ff5500; /* Change to desired background color */
+  color: #ffffff; /* Change to desired text color */
+  padding: 100px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.hero-heading {
+  font-size: 3rem; /* Adjust heading font size */
+  margin-bottom: 20px;
+}
+
+.hero-subheading {
+  font-size: 1.5rem; /* Adjust subheading font size */
+  margin-bottom: 40px;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: #ffffff; /* Change to desired button color */
+  color: #ff5500; /* Change to desired button text color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-hero:hover {
+  background-color: #ff7700; /* Change to desired hover background color */
+  color: #ffffff; /* Change to desired hover text color */
+}
+
+
+/* About Us section styles */
+.about-section {
+  background-color: #f8f8f8; /* Change to desired background color */
+  padding: 80px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem; /* Adjust heading font size */
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 1.1rem; /* Adjust description font size */
+  margin-bottom: 40px;
+}
+
+.team-member img {
+  width: 150px; /* Adjust team member image size */
+  border-radius: 50%;
+}
+
+.team-member h3 {
+  margin-top: 10px;
+  font-size: 1.2rem; /* Adjust team member name font size */
+}
+
+.team-member p {
+  font-size: 1rem; /* Adjust team member role font size */
+  color: #888888; /* Change to desired text color */
+}
+
+
+/* FEATURES  */
+
+.features-section {
+  background-color: #ffffff; /* Change to desired background color */
+  padding: 80px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem; /* Adjust heading font size */
+  margin-bottom: 40px;
+}
+
+.feature {
+  margin-bottom: 40px;
+}
+
+.feature img {
+  width: 100px; /* Adjust feature icon size */
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.5rem; /* Adjust feature heading font size */
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1rem; /* Adjust feature description font size */
+  color: #888888; /* Change to desired text color */
+}
+
+
+/* WHY USE OUR TOOLS */
+
+.why-use-section {
+  background-color: #f8f8f8; /* Change to desired background color */
+  padding: 80px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem; /* Adjust heading font size */
+  margin-bottom: 40px;
+}
+
+.benefit {
+  margin-bottom: 40px;
+}
+
+.benefit img {
+  width: 100px; /* Adjust benefit icon size */
+  margin-bottom: 20px;
+}
+
+.benefit h3 {
+  font-size: 1.5rem; /* Adjust benefit heading font size */
+  margin-bottom: 10px;
+}
+
+.benefit p {
+  font-size: 1rem; /* Adjust benefit description font size */
+  color: #888888; /* Change to desired text color */
+}
+
+/* RESOURCES */
+
+.resources-section {
+  background-color: #ffffff; /* Change to desired background color */
+  padding: 80px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem; /* Adjust heading font size */
+  margin-bottom: 40px;
+}
+
+.resource {
+  margin-bottom: 40px;
+}
+
+.resource a {
+  font-size: 1.5rem; /* Adjust link font size */
+  color: #333333; /* Change to desired link color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.resource a:hover {
+  color: #ff5500; /* Change to desired hover color */
+}
+
+.resource p {
+  font-size: 1rem; /* Adjust description font size */
+  color: #888888; /* Change to desired text color */
+}
+
+/* Blog/News section styles */
+.blog-section {
+  background-color: #f8f8f8; /* Change to desired background color */
+  padding: 80px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem; /* Adjust heading font size */
+  margin-bottom: 40px;
+}
+
+.blog-post {
+  margin-bottom: 40px;
+}
+
+.blog-post h3 {
+  font-size: 1.5rem; /* Adjust post title font size */
+  margin-bottom: 10px;
+}
+
+.blog-post p {
+  font-size: 1rem; /* Adjust post description font size */
+  color: #888888; /* Change to desired text color */
+}
+
+.subscribe {
+  margin-top: 40px;
+}
+
+.subscribe h3 {
+  font-size: 1.5rem; /* Adjust subscribe heading font size */
+  margin-bottom: 10px;
+}
+
+.subscribe form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe input[type="email"] {
+  padding: 10px;
+  margin-right: 10px;
+  width: 250px; /* Adjust input width as needed */
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Change to desired border color */
+}
+
+.subscribe button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #ff5500; /* Change to desired button color */
+  color: #ffffff; /* Change to desired button text color */
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe button:hover {
+  background-color: #ff7700; /* Change to desired hover color */
+}
+
+
+/* CONTACT US*/
+
+.contact-section {
+  background-color: #ffffff; /* Change to desired background color */
+  padding: 80px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem; /* Adjust heading font size */
+  margin-bottom: 40px;
+}
+
+.contact-form form {
+  max-width: 500px; /* Adjust form width as needed */
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Change to desired border color */
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #ff5500; /* Change to desired button color */
+  color: #ffffff; /* Change to desired button text color */
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #ff7700; /* Change to desired hover color */
+}
+
+.social-links {
+  margin-top: 40px;
+}
+
+.social-links h3 {
+  font-size: 1.5rem; /* Adjust social links heading font size */
+  margin-bottom: 20px;
+}
+
+.social-links ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links li {
+  margin-right: 20px;
+}
+
+.social-links img {
+  width: 40px; /* Adjust social media icon size */
+  border-radius: 50%;
+}
+
+
+/* FOOTER */
+/* Footer section styles */
+.footer-section {
+  background-color: #333333; /* Change to desired background color */
+  color: #ffffff; /* Change to desired text color */
+  padding: 20px 0; /* Adjust top and bottom padding as needed */
+  text-align: center;
+}
+
+.footer-links ul,
+.social-media ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li,
+.social-media li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.footer-links a,
+.social-media a {
+  color: #ffffff; /* Change to desired link color */
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.social-media a:hover {
+  text-decoration: underline;
+}
+
+.social-media img {
+  width: 30px; /* Adjust social media icon size */
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
